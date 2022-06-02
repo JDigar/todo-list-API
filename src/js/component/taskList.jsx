@@ -23,11 +23,15 @@ const TaskList = (props) => {
 	};
 
 	return (
-		<div>
+		<div className="container-fluid">
+			<h1 className="text-center">TODO LIST</h1>
 			<form className="form" onSubmit={submit}>
 				<span>Añadir tareas</span>
-				<input value={inputText} onChange={manejarFormulario} />
-
+				<input
+					className="mb-2"
+					value={inputText}
+					onChange={manejarFormulario}
+				/>
 				<button>Guardar</button>
 			</form>
 

@@ -1,3 +1,10 @@
+body {
+    background-image: url(https://img.freepik.com/vector-gratis/fondo-acuarela-turquesa_125540-1259.jpg?t=st=1654157771~exp=1654158371~hmac=e349cf0e30cb0eaa05f912757f03c2aac531c300322935c295348e741ef7f0fa&w=826);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .form {
     width: 80%;
     margin: 60px auto 0;
@@ -9,15 +16,18 @@
 }
 
 .form input {
+    width: 50%;
     margin-right: 30px;
+    border-radius: 4px;
 }
 
 .form button {
     border: none;
-    padding: 15px;
+    padding: 10px;
     font-size: 20px;
     background-color: black;
     color: white;
+    border-radius: 8px;
 }
 
 .validacion {
@@ -36,4 +46,8 @@
     margin: 20px 0 15px 0;
     display: grid;
     grid-template-columns: 3fr 1fr;
+}
+
+h1 {
+    padding: 20px;
 }
