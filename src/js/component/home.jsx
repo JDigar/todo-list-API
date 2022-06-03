@@ -22,7 +22,7 @@ const Home = () => {
 
 			<div className="listaTareas">
 				{listaTareas.map((e, index) => (
-					<Tarea tarea={e} borrar={borrar} id={index} />
+					<Tarea key={index} tarea={e} borrar={borrar} id={index} />
 				))}
 			</div>
 		</div>
