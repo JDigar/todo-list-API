@@ -7,6 +7,32 @@ import Tarea from "./tarea.jsx";
 const Home = () => {
 	const [listaTareas, setListaTareas] = useState([]);
 
+	const updateToDo = (tareas) => {
+		console.log(tareas);
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/Jonny", {
+			method: "PUT",
+			headers: {
+				"Content-type": "application/json",
+			},
+			body: JSON.stringify(tareas),
+		})
+			.then((resp) => resp.json())
+			.then((data) => {
+				// data = data.map((tarea) => tarea.label);
+				// setListaTareas(data);
+				console.log(data);
+			});
+	};
+
+	const nuevaTarea = (tarea) => {
+		setListaTareas([{ label: tarea, done: false }, ...listaTareas]); //Operador spreat (...)
+	};
+
+	const borrar = (id) => {
+		const listaFiltrada = listaTareas.filter((e, index) => index !== id);
+		setListaTareas(listaFiltrada);
+	};
+
 	useEffect(() => {
 		//codigo que voy a ejecutar
 		fetch("https://assets.breatheco.de/apis/fake/todos/user/Jonny", {
@@ -15,46 +41,30 @@ const Home = () => {
 		})
 			.then((resp) => resp.json())
 			.then((data) => {
-				data = data.map((tarea) => tarea.label);
+				//data = ((tarea) => tarea.label);
 				setListaTareas(data);
 			});
 	}, []);
 
 	useEffect(() => {
-		fetch("https://assets.breatheco.de/apis/fake/todos/user/Jonny", {
-			method: "PUT",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify([
-				{ label: "Aprender a programar", done: false },
-				{ label: "Morir programando", done: false },
-				{ label: "PROGRAMAR MOLA", done: false },
-			]),
-		})
-			.then((resp) => resp.json())
-			.then((data) => {
-				data = data.map((tarea) => tarea.label);
-				setListaTareas(data);
-			});
-	});
-
-	const nuevaTarea = (tarea) => {
-		setListaTareas([tarea, ...listaTareas]); //Operador spreat (...)
-	};
-
-	const borrar = (id) => {
-		const listaFiltrada = listaTareas.filter((e, index) => index !== id);
-		setListaTareas(listaFiltrada);
-	};
+		if (listaTareas.length > 0) {
+			console.log(listaTareas);
+			updateToDo(listaTareas);
+		}
+	}, [listaTareas]);
 
 	return (
 		<div className="container-fluid">
 			<TaskList nuevaTarea={nuevaTarea} />
 
 			<div className="listaTareas">
-				{listaTareas.map((e, index) => (
-					<Tarea key={index} tarea={e} borrar={borrar} id={index} />
+				{listaTareas.map((item, index) => (
+					<Tarea
+						key={index}
+						tarea={item.label}
+						borrar={borrar}
+						id={index}
+					/>
 				))}
 			</div>
 		</div>
