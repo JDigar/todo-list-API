@@ -23,16 +23,16 @@ const TaskList = (props) => {
 	};
 
 	return (
-		<div className="container-fluid">
+		<div>
 			<h1 className="text-center">TODO LIST</h1>
-			<form className="form" onSubmit={submit}>
-				<span>Añadir tareas</span>
+			<form className="form container-fluid" onSubmit={submit}>
+				<span>Add task</span>
 				<input
 					className="mb-2"
 					value={inputText}
 					onChange={manejarFormulario}
 				/>
-				<button>Guardar</button>
+				<button>Save task</button>
 			</form>
 
 			{!validacion && (

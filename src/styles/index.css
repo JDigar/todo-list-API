@@ -1,8 +1,27 @@
-body {
-    background-image: url(https://img.freepik.com/vector-gratis/fondo-acuarela-turquesa_125540-1259.jpg?t=st=1654157771~exp=1654158371~hmac=e349cf0e30cb0eaa05f912757f03c2aac531c300322935c295348e741ef7f0fa&w=826);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+html, body {
+    width: 100%;
+    height:100%;
+  }
+  
+  body {
+      background: linear-gradient(45deg, #525fee, #3ce7e1, #23d597, #d5c923);
+      background-size: 400% 400%;
+      animation: gradient 8s ease infinite;
+  }
+  
+  @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+
+ /*FONDO GRADIENTE DE COLORES*/
 
 
 .form {
@@ -22,12 +41,13 @@ body {
 }
 
 .form button {
-    border: none;
-    padding: 10px;
+    border-width: 2px;
+    padding: 5px;
     font-size: 20px;
-    background-color: black;
-    color: white;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(0, 0, 0);
     border-radius: 8px;
+    margin-left: 30px;
 }
 
 .validacion {
@@ -50,4 +70,21 @@ body {
 
 h1 {
     padding: 20px;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+
+}
+
+#myCont {
+    border-width: 3px;
+  border-style: solid;
+  border-color: black;
+  backdrop-filter: blur(6000px);
+
+  box-shadow: 0px 15px 42px -9px rgba(0,0,0,0.75);
+    width: 80%;
+    margin-top: 50px;
+}
+
+#myBtn {
+    padding-left: 120px;
 }

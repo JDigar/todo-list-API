@@ -6,6 +6,7 @@ const Tarea = (props) => {
 			<div className="tarea">
 				<span>{props.tarea}</span>
 				<span
+					id="myBtn"
 					onClick={() => {
 						props.borrar(props.id);
 					}}>

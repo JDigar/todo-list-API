@@ -54,7 +54,7 @@ const Home = () => {
 	}, [listaTareas]);
 
 	return (
-		<div className="container-fluid">
+		<div id="myCont" className="container-fluid">
 			<TaskList nuevaTarea={nuevaTarea} />
 
 			<div className="listaTareas">
